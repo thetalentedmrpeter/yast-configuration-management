@@ -77,7 +77,7 @@ module Y2ConfigurationManagement
         if config.master.is_a?(::String)
           config_file.master = config.master
         else
-          config_file.set_file_roots(config.states_roots(:target))
+          config_file.set_file_roots(*config.states_roots(:target))
           config_file.set_pillar_roots(config.pillar_roots(:target))
         end
         config_file.save

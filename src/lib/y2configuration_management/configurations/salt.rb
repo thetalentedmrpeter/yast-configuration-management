@@ -102,7 +102,7 @@ module Y2ConfigurationManagement
       # @return [Array<Pathname>] Path to Salt state roots
       def states_roots(scope = :local)
         paths = @custom_states_roots + formulas_sets.map(&:states_root).compact
-        [default_states_root(scope)] + scoped_paths(paths, scope)
+        [default_states_root(scope), default_formulas_root(scope)] + scoped_paths(paths, scope)
       end
 
       # Return path to the default Salt states directory
